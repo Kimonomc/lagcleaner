@@ -1,0 +1,67 @@
+# LagCleaner 配置文件
+
+# 清理设置
+clean:
+  # 物品清理设置
+  items:
+    # 是否清理掉落物
+    enabled: true
+    # 清理存在时间超过多少秒的物品（默认30秒）
+    min-age-seconds: 30
+    
+  # 实体清理设置
+  entities:
+    # 是否清理实体
+    enabled: true
+    # 需要清理的实体类型列表
+    types:
+      - DROPPED_ITEM
+      - EXPERIENCE_ORB
+      - ARROW
+      - SPECTRAL_ARROW
+      - FIREBALL
+      - SMALL_FIREBALL
+      - WITHER_SKULL
+      - ENDER_PEARL
+      - SNOWBALL
+      - EGG
+      - POTION
+      - THROWN_EXP_BOTTLE
+    
+  # 区块卸载设置
+  chunks:
+    # 是否卸载未使用的区块
+    enabled: true
+    # 只卸载玩家周围多少区块以外的区块（默认10个区块）
+    min-distance: 10
+
+# 系统清理设置
+system:
+  # 是否执行系统级内存清理
+  enabled: true
+  # 深度垃圾回收的最大尝试次数
+  max-gc-attempts: 10
+
+# 消息设置
+messages:
+  # 清理开始消息
+  clean-start: "§a开始清理服务器内存..."
+  # 清理完成消息
+  clean-complete: "§a内存清理完成！耗时: %dms"
+  # 内存释放消息
+  memory-freed: "§a释放内存 - 堆: %s §8| 非堆: %s §8| 总计: %s"
+  # 实体清理消息
+  entities-cleaned: "§7清理实体: %d 个"
+  # 区块卸载消息
+  chunks-unloaded: "§7卸载区块: %d 个"
+  # 权限不足消息
+  no-permission: "§c你没有使用此命令的权限！"
+  # 帮助消息
+  help: |
+    §6===== LagCleaner 插件帮助 =====
+    §a/lag clean §7- 清理服务器内存
+    §a/rem clean §7- 清理系统内存
+    §a/lagcleaner clean §7- 清理服务器内存
+    §a/lagcleaner reload §7- 重新加载配置
+    §a/lagcleaner info §7- 显示插件信息
+    §6==============================
